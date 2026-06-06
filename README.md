@@ -52,7 +52,7 @@ The first five rows of the cleaned DataFrame are shown below.
 ### Univariate Analysis
 #### Distribution of Average Recipe Ratings
 
-<iframe src="assets/avg_rating_distribution.html" width="800" height="300" frameBorder="0"></iframe>
+<iframe src="assets/avg_rating_distribution.html" width="800" height="200" frameBorder="0"></iframe>
 
 The distribution of average recipe ratings is concentrated near the upper end of the rating scale. Most recipes have average ratings between 4 and 5, while relatively few recipes receive low ratings.
 
@@ -61,7 +61,7 @@ This suggests that users on Food.com tend to rate recipes positively, resulting 
 ### Bivariate Analysis
 #### Preparation Time vs Average Rating
 
-<iframe src="assets/preparation_time_vs_rating.html" width="800" height="600" frameBorder="0"></iframe>
+<iframe src="assets/preparation_time_vs_rating.html" width="800" height="300" frameBorder="0"></iframe>
 
 This scatter plot compares recipe preparation time and average rating. Most recipes are concentrated at shorter preparation times and higher ratings, especially between 4 and 5 stars. There does not appear to be a strong linear relationship between preparation time and average rating, but the plot suggests that highly-rated recipes exist across a wide range of preparation times.
 
@@ -96,7 +96,7 @@ The first test examined the relationship between description missingness and `n_
 
 #### Description Missingness vs Number of Steps
 
-<iframe src="assets/description_missingness_test1.html" width="800" height="600" frameBorder="0"></iframe>
+<iframe src="assets/description_missingness_test1.html" width="800" height="400" frameBorder="0"></iframe>
 
 The histogram shows the permutation distribution of the test statistic, while the red line represents the observed statistic. Since the p-value is greater than 0.05, there is insufficient evidence to conclude that the missingness of `description` depends on `n_steps`.
 
@@ -104,7 +104,7 @@ The second test examined the relationship between description missingness and `n
 
 #### Description Missingness vs Number of Ingredients
 
-<iframe src="assets/description_missingness_test2.html" width="800" height="600" frameBorder="0"></iframe>
+<iframe src="assets/description_missingness_test2.html" width="800" height="500" frameBorder="0"></iframe>
 
 The histogram shows the permutation distribution of the test statistic, while the red line represents the observed statistic. Since the p-value is less than 0.05, there is evidence that the missingness of `description` is associated with `n_ingredients`.
 
