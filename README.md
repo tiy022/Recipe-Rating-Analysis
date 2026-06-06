@@ -61,7 +61,7 @@ This suggests that users on Food.com tend to rate recipes positively, resulting 
 ### Bivariate Analysis
 #### Preparation Time vs Average Rating
 
-<iframe src="assets/preparation_time_vs_rating.html" width="800" height="300" frameBorder="0"></iframe>
+<iframe src="assets/preparation_time_vs_rating.html" width="800" height="200" frameBorder="0"></iframe>
 
 This scatter plot compares recipe preparation time and average rating. Most recipes are concentrated at shorter preparation times and higher ratings, especially between 4 and 5 stars. There does not appear to be a strong linear relationship between preparation time and average rating, but the plot suggests that highly-rated recipes exist across a wide range of preparation times.
 
