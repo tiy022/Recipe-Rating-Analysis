@@ -150,10 +150,32 @@ The baseline model achieved an RMSE of **0.6428** on the test set. The baseline 
 
 ## Final Model
 
-...
+The final model uses more features than the baseline model. In addition to `minutes` and `n_ingredients`, it includes `n_steps`, `calories`, `protein`, `sugar`, and `carbs`.
+
+Two engineered features were added. The first is `log_minutes`, which is a log-transformed version of preparation time. This feature is useful because preparation time has extreme outliers, and the log transformation reduces the influence of very large values. The second is `steps_per_ingredient`, which is calculated as `n_steps / n_ingredients`. This feature measures recipe complexity relative to the number of ingredients.
+
+The final model uses Ridge regression with polynomial features. Polynomial features allow the model to capture nonlinear relationships between the recipe features and average rating. Ridge regression is used because polynomial features create additional terms, which can make the model more complex. Ridge regularization helps reduce overfitting by penalizing large coefficients.
+
+Hyperparameters were selected using `GridSearchCV` with 5-fold cross-validation. The hyperparameters tuned were `poly__degree`, the degree of the polynomial features, and `ridge__alpha`, the alpha value used in Ridge regression. The best hyperparameters were **`poly__degree = 1`** and **`ridge__alpha = 1000`**.
+
+The final model achieved an RMSE of **0.6422** on the test set. Compared to the baseline RMSE of **0.6428**, the final model performed slightly better. However, the improvement is small, suggesting that these additional features and transformations did not substantially improve prediction performance.
 
 ---
 
 ## Fairness Analysis
 
-...
+This fairness analysis examines whether the final model performs differently for recipes with longer preparation time and recipes with shorter preparation time. Recipes were divided into two groups based on the median preparation time. Recipes with preparation time greater than the median were labeled as longer-preparation-time recipes, while recipes with preparation time less than or equal to the median were labeled as shorter-preparation-time recipes.
+
+The null hypothesis is that the model is fair: recipes with longer preparation time and recipes with shorter preparation time have the same RMSE. The alternative hypothesis is that the model is unfair: the two groups have different RMSE values.
+
+The test statistic is the absolute difference in RMSE between the two groups. A significance level of 0.05 was used.
+
+Since this is a regression model, RMSE is used as the evaluation metric. The final fitted model from the previous step was used to make predictions on the test set.
+
+A permutation test was used to compare the RMSE values of the two groups. During each permutation, the preparation-time group labels were shuffled, while the actual ratings and predicted ratings stayed the same.
+
+<iframe src="assets/fairness_analysis.html" width="800" height="600" frameBorder="0"></iframe>
+
+The histogram shows the permutation distribution of the test statistic, and the red line represents the observed statistic. The resulting simulated p-value was **less than 0.001**.
+
+Since the p-value is less than 0.05, the null hypothesis is rejected. This suggests that the final model's performance differs between recipes with longer preparation time and recipes with shorter preparation time.
