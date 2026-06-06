@@ -120,6 +120,8 @@ The test statistic is the absolute difference in mean average rating between the
 
 This test statistic is appropriate because the research question compares the ratings of recipes with more ingredients and recipes with fewer ingredients. Since the goal is to determine whether the two groups have different average ratings, the absolute difference in mean average rating directly measures the size of the difference between the two groups. A permutation test is appropriate because it tests whether the observed difference could have occurred by random chance if ingredient group and average rating were unrelated.
 
+#### Rating Difference by Ingredient Count
+
 <iframe src="assets/rating_difference_test.html" width="800" height="420" frameBorder="0"></iframe>
 
 The histogram shows the permutation distribution of the test statistic, and the red line represents the observed statistic. The resulting p-value was **0.392**.
@@ -173,6 +175,8 @@ The test statistic is the absolute difference in RMSE between the two groups. A 
 Since this is a regression model, RMSE is used as the evaluation metric. The final fitted model from the previous step was used to make predictions on the test set.
 
 A permutation test was used to compare the RMSE values of the two groups. During each permutation, the preparation-time group labels were shuffled, while the actual ratings and predicted ratings stayed the same.
+
+#### RMSE Difference by Preparation Time
 
 <iframe src="assets/fairness_analysis.html" width="800" height="420" frameBorder="0"></iframe>
 
