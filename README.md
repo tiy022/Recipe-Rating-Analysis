@@ -52,7 +52,7 @@ The first five rows of the cleaned DataFrame are shown below.
 ### Univariate Analysis
 #### Distribution of Average Recipe Ratings
 
-<iframe src="assets/avg_rating_distribution.html" width="800" height="300" frameBorder="0"></iframe>
+<iframe src="assets/avg_rating_distribution.html" width="800" height="400" frameBorder="0"></iframe>
 
 The distribution of average recipe ratings is concentrated near the upper end of the rating scale. Most recipes have average ratings between 4 and 5, while relatively few recipes receive low ratings.
 
