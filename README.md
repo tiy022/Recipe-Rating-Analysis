@@ -154,7 +154,7 @@ The final model uses more features than the baseline model. In addition to `minu
 
 Two engineered features were added. The first is `log_minutes`, which is a log-transformed version of preparation time. This feature is useful because preparation time has extreme outliers, and the log transformation reduces the influence of very large values. The second is `steps_per_ingredient`, which is calculated as `n_steps / n_ingredients`. This feature measures recipe complexity relative to the number of ingredients.
 
-The final model uses Ridge regression with polynomial features. Polynomial features allow the model to capture nonlinear relationships between the recipe features and average rating. Ridge regression is used because polynomial features create additional terms, which can make the model more complex. Ridge regularization helps reduce overfitting by penalizing large coefficients.
+The final model uses Ridge regression with polynomial features. Polynomial features were included so that `GridSearchCV` could test whether higher-degree polynomial features and interactions improved performance. Ridge regression was used because polynomial features can create additional terms, which may make the model more complex. Ridge regularization helps reduce overfitting by penalizing large coefficients.
 
 Hyperparameters were selected using `GridSearchCV` with 5-fold cross-validation. The hyperparameters tuned were `poly__degree`, the degree of the polynomial features, and `ridge__alpha`, the alpha value used in Ridge regression. The best hyperparameters were **`poly__degree = 1`** and **`ridge__alpha = 1000`**.
 
